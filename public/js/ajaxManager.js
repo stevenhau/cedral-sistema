@@ -1,24 +1,68 @@
-//Desarrollos
-// Obtener la parte de la URL después del dominio
-let controlador = window.location.pathname;
+// Obtener el controlador desde la URL actual
+let controller = window.location.pathname;
+function sendRequest(action, parameters, callback) {
 
+    // Realizar la solicitud AJAX
+    $.ajax({
+        url: '/manager',
+        type: 'POST',
+        data: {
+            controller: controller,
+            action: action,
+            parameters: parameters
+        },
+        success: function (response) {
+            callback(null, response);
+        },
+        error: function (xhr, status, error) {
+            callback(error, null);
+        }
+    });
+}
 
-
-$.ajax({
-    url: '/manager', // URL a la que se envía la petición
-    type: 'POST', // Tipo de petición (GET, POST, etc.)
-    data: {
-        controlador: controlador,
-        parametros: ""
-    }, // Datos que se envían al servidor
-    success: function(response) {
-        // Función que se ejecuta si la petición es exitosa
-        console.log('Respuesta del servidor:', response);
-        // Aquí puedes manejar la respuesta del servidor
-    },
-    error: function(xhr, status, error) {
-        // Función que se ejecuta si hay un error en la petición
-        console.error('Error en la petición:', error);
-        // Aquí puedes manejar el error
+// Ejemplo de uso para listar
+sendRequest('list', '', function (error, response) {
+    if (error) {
+        console.error('Error:', error);
+    } else {
+        debugger
+        // Asumiendo que el nombre de la función es "desarrollos"
+        dynamicFunction = controller.substring(1);
+        if (typeof window[dynamicFunction] === 'function') {
+            // Verificar si la función existe
+            res = JSON.parse(response);
+            window[dynamicFunction](res);
+        } else {
+            console.error(`La función ${controller} no está definida.`);
+        }
+        // Procesar la respuesta para mostrar los datos en la interfaz
     }
 });
+
+// Ejemplo de uso para agregar
+// Puedes invocar sendRequest cuando se envíe el formulario de agregar
+// sendRequest('add', formData, function (error, response) { ... });
+
+//Desarrollos
+function desarrollos(res) {
+    let desarrollos = document.getElementById('desarrollos');
+
+    let html = '';
+
+    res.forEach(item => {
+        html += `
+            <tr>
+                <th scope="row">${item.nombre}</th>
+                <td>${item.dataCreation}</td>
+                <td>${item.status === 1 ? 'Activo' : 'Inactivo'}</td>
+                <td class="text-center">
+                    <button class="btn btn-info m-r-5" data-id="${item.id}">Ver Etapas</button>
+                    <button class="btn btn-warning m-r-5" data-id="${item.id}">Editar</button>
+                    <button class="btn btn-danger m-r-5" data-id="${item.id}">Eliminar</button>
+                </td>
+            </tr>
+        `;
+    });
+
+    desarrollos.innerHTML = html;
+}

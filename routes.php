@@ -10,7 +10,7 @@ get('/info', 'info.php');
 get('/', 'views/home/index.php');
 
 //Rutas para los desarrollos
-get('/listar-desarrollos', 'views/desarrollos/index.php');
+get('/desarrollos', 'views/desarrollos/index.php');
 get('/agregar-desarrollos', 'views/desarrollos/form_agregar.php');
 post('/manager', 'controllers/AjaxManagerController.php');
 

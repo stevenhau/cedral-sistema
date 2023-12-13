@@ -17,21 +17,12 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/layouts/header.php');
                 <thead>
                     <tr>
                         <th scope="col">Nombre del Desarrollo</th>
-                        <th scope="col">Etapas</th>
-                        <th scope="col">Opciones</th>
+                        <th scope="col">Fecha Creacion</th>
+                        <th scope="col">Estato</th>
+                        <th class="text-center" scope="col">Opciones</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <th scope="row">El Cedral Eco Habitat I</th>
-                        <td>
-                        <button class="btn btn-info m-r-5">Ver Etapas</button> 
-                        </td>
-                        <td>
-                        <button class="btn btn-warning m-r-5">Editar</button>
-                        <button class="btn btn-danger m-r-5">Eliminar</button>
-                        </td>
-                    </tr>
+                <tbody id="desarrollos">
                 </tbody>
             </table>
         </div>
