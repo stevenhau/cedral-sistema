@@ -1,5 +1,7 @@
 <?php
 $controller_name = substr(ucwords($_POST['controller']), 1) ?? "";
+$controller_name = explode('-', $controller_name);
+$controller_name = $controller_name[0];
 $action = $_POST['action'] ?? "";
 $parameters = $_POST['parameters'] ?? "";
 
@@ -20,4 +22,3 @@ include $_SERVER['DOCUMENT_ROOT'] . '/controllers/' . $class_name . '.php';
 
 $dynamic_instance = new $class_name();
 $dynamic_instance->$action($parameters);
-?>

@@ -170,8 +170,8 @@
     <script src="public/js/vendors.min.js"></script>
 
     <!-- page js -->
-    <script src="public/vendors/chartjs/Chart.min.js"></script>
-    <script src="public/js/pages/dashboard-default.js"></script>
+    <!-- <script src="public/vendors/chartjs/Chart.min.js"></script>
+    <script src="public/js/pages/dashboard-default.js"></script> -->
 
     <!-- Core JS -->
     <script src="public/js/app.min.js"></script>

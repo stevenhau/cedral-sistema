@@ -9,7 +9,6 @@ class DesarrollosController
 
     public function list($parametros)
     {
-
         $desarrollos = new Desarrollo();
         $arr_desarrollos = $desarrollos->listar();
 
@@ -34,6 +33,16 @@ class DesarrollosController
 
     public function agregar($parametros)
     {
-        echo "Agregar Desarrollo Controlador";
-    }
+        //Instanciamos 
+        $desarrollos = new Desarrollo();
+        //Tratamos los datos recibidos por la vista
+        foreach($parametros as $data)
+        {
+            $name = $data['name'] ?? "";
+            $desarrollos->$name = $data['value'];
+        }
+
+        $arr_desarrollos = $desarrollos->agregarDesarrollo();
+
+    }   
 }

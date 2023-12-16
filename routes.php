@@ -11,7 +11,7 @@ get('/', 'views/home/index.php');
 
 //Rutas para los desarrollos
 get('/desarrollos', 'views/desarrollos/index.php');
-get('/agregar-desarrollos', 'views/desarrollos/form_agregar.php');
+get('/desarrollos-nuevo', 'views/desarrollos/form_agregar.php');
 post('/manager', 'controllers/AjaxManagerController.php');
 
 //Rutas para plan de pagos

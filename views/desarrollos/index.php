@@ -9,7 +9,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/layouts/header.php');
     <div class="main-content">
         <div class="page-header">
             <h2 class="header-title">Lista de Desarollos</h2>
-            <a href="/agregar-desarrollos" class="btn btn-primary m-r-5">Agregar Nuevo Desarrollo</a>
+            <a href="/desarrollos-nuevo" class="btn btn-primary m-r-5">Agregar Nuevo Desarrollo</a>
         </div>
         <!-- Content goes Here -->
         <div class="table-responsive">

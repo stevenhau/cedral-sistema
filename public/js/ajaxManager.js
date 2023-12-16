@@ -25,7 +25,6 @@ sendRequest('list', '', function (error, response) {
     if (error) {
         console.error('Error:', error);
     } else {
-        debugger
         // Asumiendo que el nombre de la función es "desarrollos"
         dynamicFunction = controller.substring(1);
         if (typeof window[dynamicFunction] === 'function') {
@@ -43,12 +42,10 @@ sendRequest('list', '', function (error, response) {
 // Puedes invocar sendRequest cuando se envíe el formulario de agregar
 // sendRequest('add', formData, function (error, response) { ... });
 
-//Desarrollos
+//Desarrollos list
 function desarrollos(res) {
     let desarrollos = document.getElementById('desarrollos');
-
     let html = '';
-
     res.forEach(item => {
         html += `
             <tr>
@@ -63,6 +60,24 @@ function desarrollos(res) {
             </tr>
         `;
     });
-
     desarrollos.innerHTML = html;
 }
+//Desarrollos add
+$('#add-desarrollo').submit(function(event) {
+    // Evitar que el formulario se envíe automáticamente
+    event.preventDefault();
+
+    // Serializar el formulario con jQuery
+    var formData = $(this).serializeArray();
+
+    // Enviar la solicitud con los datos serializados
+    sendRequest('agregar', formData, function (error, response) {
+        // Manejar la respuesta aquí
+        if (error) {
+            console.error('Error:', error);
+        } else {
+            console.log('Respuesta:', response);
+            // Puedes realizar acciones adicionales con la respuesta recibida
+        }
+    });
+});

@@ -26,5 +26,10 @@ class DB
     {
         return $this->conn->query($sql);
     }
+
+    public function prepare($sql)
+    {
+        return $this->conn->prepare($sql);
+    }
     
 }

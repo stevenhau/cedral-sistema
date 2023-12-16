@@ -15,7 +15,7 @@ include($_SERVER['DOCUMENT_ROOT'] . '/views/layouts/header.php');
             <div class="row">
                 <div class="col-12 col-md-6">
                     <label for="formGroupExampleInput">Nombre del Desarrollo:</label>
-                    <input id="formGroupExampleInput" type="text" class="form-control" placeholder="Escribe el nombre del desarrollo nuevo.">
+                    <input id="formGroupExampleInput" type="text" class="form-control" name="nombre" placeholder="Escribe el nombre del desarrollo nuevo.">
                 </div>
             </div>
             <div class="row">
