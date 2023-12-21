@@ -5,12 +5,10 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Enlink - Admin Dashboard Template</title>
-
     <!-- Favicon -->
     <link rel="shortcut icon" href="public/img/logo/favicon.png">
-
-    <!-- page css -->
-
+    <!-- Sweet Alert 2 -->
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.1/dist/sweetalert2.min.css" rel="stylesheet">
     <!-- Core css -->
     <link href="public/css/app.min.css" rel="stylesheet">
 
@@ -119,7 +117,7 @@
                         <li class="dropdown dropdown-animated scale-left">
                             <div class="pointer" data-toggle="dropdown">
                                 <div class="avatar avatar-image  m-h-10 m-r-15">
-                                    <img src="public/img/avatars/thumb-3.jpg"  alt="">
+                                    <img src="public/img/avatars/thumb-3.jpg" alt="">
                                 </div>
                             </div>
                             <div class="p-b-15 p-t-20 dropdown-menu pop-profile">
@@ -179,6 +177,6 @@
                         </li>
                     </ul>
                 </div>
-            </div>    
+            </div>
             <!-- Header END -->
-            <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/layouts/menu.php');?>
+            <?php include($_SERVER['DOCUMENT_ROOT'] . '/views/layouts/menu.php'); ?>
